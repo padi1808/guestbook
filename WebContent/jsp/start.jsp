@@ -5,8 +5,8 @@
 <%-- Direktiven fuer Page-Optionen und verwendete Tag-Libs --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c"   uri="http://java.sun.com/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+
+<%@ taglib prefix="s" uri="/struts-tags" %>
 
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
@@ -33,9 +33,9 @@
                 Folgende Funktionen stehen ihnen zur Verfügung:
             </p>
             <ul class="functionList">
-                <li><a href="Search.do">Suche im Gästebuch</a></li>
-                <li><a href="DisplayAll.do">Alle Einträge ansehen</a></li>
-                <li><a href="Create.do">Neuen Eintrag erstellen</a></li>
+                <li><a href="<s:url action='search'/>">Suche im Gästebuch</a></li>
+                <li><a href="<s:url action='displayall'/>">Alle Einträge ansehen</a></li>
+                <li><a href="<s:url action='create'/>">Neuen Eintrag erstellen</a></li>
             </ul>
             
         </div> <!-- End of guestbook body -->

@@ -30,7 +30,7 @@ public class SearchAction extends ActionSupport {
     /*
         Setting form output in this block below.
     */
-	private static ArrayList<GuestbookEntry> searchResult = new ArrayList<GuestbookEntry>();
+	private static ArrayList<GuestbookEntry> searchResult;
 	
 	public ArrayList<GuestbookEntry> getSearchResult() {
 	    return searchResult;
@@ -44,6 +44,7 @@ public class SearchAction extends ActionSupport {
 
 	@Override
 	public String execute() throws Exception {
+	    searchResult = new ArrayList<GuestbookEntry>();
 	   
 	    // Wandle in Kleinbuchstaben um, fuer Case-Insensitive Suche
 		String searchText = searchFormBean.getSearchText().toLowerCase();

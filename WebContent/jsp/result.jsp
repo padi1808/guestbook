@@ -33,35 +33,23 @@
             <h2>Suchergebnis</h2>
             
             <div class="searchResults">  
-              <s:iterator value="searchResult">
-
-			               <div class="searchHit">
-			                   <div class="searchHit_author">
-			                     
-			                     <s:if test="%{email != null}">
-                               <a href="mailto:%{email}">
-                                   <s:property value="author" />
-                               </a>
-                           </s:if>
-                           <s:else>
-                              <s:property value="author" />
-                           </s:else>
-			                   </div>
-			                   <div class="searchHit_date">
-			                     <s:date name="date" format="dd.MM.yyyy HH:mm" />
-			               <%--Formatiere Datum zur besseren Anzeige --%>
-
-			                   </div>
-			                   <div class="searchHit_text">
-                            <s:property value="text" />
-			                   </div>
-			               </div>
-			               
+              <s:iterator value="searchResult">              
+			            <div class="searchHit">
+			                <div class="searchHit_author">
+			                    <s:if test="%{email != null}">
+                            <a href="mailto:${email}">${author}</a>
+                          </s:if>
+                          <s:else>${author}</s:else>
+			                </div>
+			                <div class="searchHit_date">
+			                  <s:date name="date" format="dd.MM.yyyy HH:mm" />
+			                </div>
+			                <div class="searchHit_text">${text}</div>
+			            </div>    
               </s:iterator>
             </div>
           <br/>
-            <a href="<s:url action='start'/>">Zurück zur Startseite</a>
-            
+          <a href="<s:url action='start'/>">Zurück zur Startseite</a>    
         </div> <!-- End of guestbook body -->
       
         

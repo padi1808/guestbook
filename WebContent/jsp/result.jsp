@@ -32,25 +32,35 @@
             <!-- Subheader and explanation text for this page -->
             <h2>Suchergebnis</h2>
             
-            <div class="searchResults">
-
+            <div class="searchResults">  
+              <s:iterator value="searchResult">
 
 			               <div class="searchHit">
 			                   <div class="searchHit_author">
-
+			                     
+			                     <s:if test="%{email != null}">
+                               <a href="mailto:%{email}">
+                                   <s:property value="author" />
+                               </a>
+                           </s:if>
+                           <s:else>
+                              <s:property value="author" />
+                           </s:else>
 			                   </div>
 			                   <div class="searchHit_date">
+			                     <s:date name="date" format="dd.MM.yyyy HH:mm" />
 			               <%--Formatiere Datum zur besseren Anzeige --%>
 
 			                   </div>
 			                   <div class="searchHit_text">
-
+                            <s:property value="text" />
 			                   </div>
-			               </div>    
-
+			               </div>
+			               
+              </s:iterator>
             </div>
-            <br/>
-            <html:link forward="start">Zurück zur Startseite</html:link>
+          <br/>
+            <a href="<s:url action='start'/>">Zurück zur Startseite</a>
             
         </div> <!-- End of guestbook body -->
       

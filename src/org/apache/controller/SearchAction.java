@@ -83,6 +83,5 @@ public class SearchAction extends ActionSupport {
 			return ERROR;	
 		}
 		
-		//return SUCCESS;
 	}
 }

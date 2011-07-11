@@ -7,6 +7,11 @@ public class SearchForm /*extends ValidatorForm*/ {
 	private String searchText;
 	private String author;
 	
+	public SearchForm() {
+        this.searchText = "";
+        this.author = "";
+	}
+	
 	public String getSearchText() {
 		return searchText;
 	}

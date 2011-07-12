@@ -35,7 +35,7 @@
             <ul class="functionList">
                 <li><a href="<s:url action='search'/>">Suche im Gästebuch</a></li>
                 <li><a href="<s:url action='displayall'/>">Alle Einträge ansehen</a></li>
-                <li><a href="<s:url action='create'/>">Neuen Eintrag erstellen</a></li>
+                <li><a href="<s:url action='createInput'/>">Neuen Eintrag erstellen</a></li>
             </ul>
             
         </div> <!-- End of guestbook body -->

@@ -6,7 +6,7 @@ import org.apache.model.DatabaseException;
 import org.apache.model.GuestbookDB;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.interceptor.ExceptionMappingInterceptor;
+//import com.opensymphony.xwork2.interceptor.ExceptionMappingInterceptor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,10 +34,6 @@ public class SearchAction extends ActionSupport {
 	
 	public ArrayList<GuestbookEntry> getSearchResult() {
 	    return searchResult;
-	}
-	
-	public void setSearchResult(ArrayList<GuestbookEntry> results) {
-	    searchResult = results;
 	}
     
 

@@ -4,9 +4,7 @@
 <%-- Direktiven fuer Page-Optionen und verwendete Tag-Libs --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c"    uri="http://java.sun.com/jstl/core" %>
-<%@ taglib prefix="fmt"  uri="http://java.sun.com/jstl/fmt" %>
-<%@ taglib prefix="html" uri="http://struts.apache.org/tags-html" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 
@@ -40,38 +38,34 @@
             </p>
             
             <span class="error">
-                <html:errors/>
             </span>
             
             <!--  Form for searching in the guestbook  -->
-            <html:form acceptCharset="UTF-8" action="/CreateSubmit.do" method="post">
-
+            <s:form action="create">
+            
                 <!-- "Name" field -->
                 <div class="formField">
-                    <label for="author">Ihr Name<sup>*</sup></label>
-                    <html:text property="author"/>
+                  <s:textfield key="entryBean.author" label="Ihr Name *" size="60"/>
                 </div>
 
                 <!-- "eMail" field -->
                 <div class="formField">
-                    <label for="email">Ihre Email</label>
-                    <html:text property="email"/>
+                  <s:textfield  key="entryBean.email" label="Ihre Email" size="60"/>
                 </div>
 
                 <!-- "Text" field -->
                 <div class="formField">
-                    <label for="text">Ihre Nachricht</label>
-                    <html:textarea property="text" rows="4" cols="60"/>
+                  <s:textarea key="entryBean.text" label="Ihre Nachricht" cols="50" rows="4"/> 
                 </div>
 
                 <!-- Submit-Button -->
                 <div class="formButton">
-                    <html:submit value="Erstellen"/>
+                  <s:submit key="submit" value="Erstellen"/>
                 </div>
+              </s:form>
 
-            </html:form>
-
-            <html:link forward="start">Zurück zur Startseite</html:link>
+            <br/>
+            <a href="<s:url action='start'/>">Zurück zur Startseite</a>  
             
         </div> <!-- End of guestbook body -->
       

@@ -23,46 +23,42 @@ public class CreateAction extends ActionSupport {
     	entryBean = entry;
     }
     
-    
+    // Validation of input.
     public void validate() {
-        //TODO
+        if (entryBean.getAuthor().length() == 0 ){	
+		    addFieldError( "entryBean.author", "Autor muss ausgefüllt werden." );		
+	    }
+        if (entryBean.getText().length() == 0 ){	
+		    addFieldError( "entryBean.text", "Nachrichtentext muss ausgefüllt werden." );		
+	    }
     }
-
-/*	@Override
-	public ActionForward execute(ActionMapping mapping, ActionForm form,
-			HttpServletRequest request, HttpServletResponse response) {
-
-		try {
-			// ActionForm ist ein Guestbook-Entry (wurde in struts-config.xml so
-			// festgelegt), d.h. wir koennen direkt casten und haben schon
-			// das gewuenschte Eintrag-Objekt, ohne dass wir dafuer etwas machen
-			// muessen :-)
-			GuestbookEntry newEntry = (GuestbookEntry) form;
-			// Eintrag in Datenbank abspeichern und danach gewuenschtes
-			// Forward-Ziel zurueckgeben.
-			GuestbookDB db = GuestbookDB.getInstance();
-			db.addEntry(newEntry);
-			return mapping.findForward("success");
-
-		} catch (DatabaseException e) {
-			// Bei einem Datenbank-Fehler legen wir eine neue Action-Message
-			// mit einer Fehlermeldung an und speichern diese in den Errors
-			// dieser Struts-Action ab. Die Meldung kann mit dem Tag
-			// <html:errors> auf der JSP-Seite angezeigt werden.
-			ActionMessage errorMsg = new ActionMessage(e.getMessage(), false);
-			ActionMessages errors = this.getErrors(request);
-			errors.add("databaseError", errorMsg);
-			this.saveErrors(request, errors);
-			return mapping.findForward("failure");
-		}
-
-
-	}*/
 	
-		@Override
-    	public String execute() throws Exception {
-    		//call Service class to store personBean's state in database
-    		return SUCCESS;	
+	@Override
+    public String execute() throws Exception {    	    
+    	try {
+    			// ActionForm ist ein Guestbook-Entry (wurde in struts-config.xml so
+    			// festgelegt), d.h. wir koennen direkt casten und haben schon
+    			// das gewuenschte Eintrag-Objekt, ohne dass wir dafuer etwas machen
+    			// muessen :-)
+    			//GuestbookEntry newEntry = (GuestbookEntry) form;
+    			// Eintrag in Datenbank abspeichern und danach gewuenschtes
+    			// Forward-Ziel zurueckgeben.
+    			GuestbookDB db = GuestbookDB.getInstance();
+    			db.addEntry(getEntryBean());
+    			return SUCCESS;
+
+    	} catch (DatabaseException e) {
+    			// Bei einem Datenbank-Fehler legen wir eine neue Action-Message
+    			// mit einer Fehlermeldung an und speichern diese in den Errors
+    			// dieser Struts-Action ab. Die Meldung kann mit dem Tag
+    			// <html:errors> auf der JSP-Seite angezeigt werden.
+    			
+    			/*ActionMessage errorMsg = new ActionMessage(e.getMessage(), false);
+    			ActionMessages errors = this.getErrors(request);
+    			errors.add("databaseError", errorMsg);
+    			this.saveErrors(request, errors);*/
+    			return ERROR;
     	}
+    }
 
 }

@@ -19,8 +19,8 @@
 		
 		<action name="create" class="org.apache.controller.CreateAction" method="execute">
       <result name="success">/jsp/result.jsp</result>
-      <result name="error">/jsp/error.jsp</result>
       <result name="input">/jsp/create.jsp</result>
+      <result name="error">/jsp/error.jsp</result>
     </action>
     
 		<action name="createInput" class="org.apache.controller.CreateAction" method="input">

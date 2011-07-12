@@ -36,16 +36,13 @@
                 Gästebuch-Eintrag zu erstellen. Mit <sup>*</sup> 
                 gekennzeichnete Felder sind Pflichtfelder.
             </p>
-            
-            <span class="error">
-            </span>
-            
+
             <!--  Form for searching in the guestbook  -->
             <s:form action="create">
             
                 <!-- "Name" field -->
                 <div class="formField">
-                  <s:textfield key="entryBean.author" label="Ihr Name *" size="60"/>
+                  <s:textfield key="entryBean.author" label="Ihr Name*" size="60"/>
                 </div>
 
                 <!-- "eMail" field -->
@@ -55,7 +52,7 @@
 
                 <!-- "Text" field -->
                 <div class="formField">
-                  <s:textarea key="entryBean.text" label="Ihre Nachricht" cols="50" rows="4"/> 
+                  <s:textarea key="entryBean.text" label="Ihre Nachricht*" cols="50" rows="4"/> 
                 </div>
 
                 <!-- Submit-Button -->

@@ -4,9 +4,7 @@
 <%-- Direktiven fuer Page-Optionen und verwendete Tag-Libs --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c"    uri="http://java.sun.com/jstl/core" %>
-<%@ taglib prefix="fmt"  uri="http://java.sun.com/jstl/fmt" %>
-<%@ taglib prefix="html" uri="http://struts.apache.org/tags-html" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 
@@ -37,12 +35,17 @@
                 Folgender Fehler ist aufgetreten:
             </p>
             
-            <span class="error">
-                <html:errors/>
-            </span>
+            <span class="error"><ul>
+                <s:if test="hasActionErrors()">
+                <s:iterator value="actionErrors">
+                <li class="error"><s:property escape="false" />
+                </li>
+                </s:iterator>
+                </s:if>
+            </ul></span>
             
             <br/>
-            <html:link forward="start">Zur Startseite</html:link>
+            <a href="<s:url action='start'/>">Zurück zur Startseite</a>    
             
         </div> <!-- End of guestbook body -->
       

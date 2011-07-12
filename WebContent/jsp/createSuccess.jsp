@@ -35,11 +35,16 @@
             <%-- Ausgabe des gerade erstellten Eintrags. Der Zugriff auf das
                  Bean erfolgt einfach mit dem Namen des Struts-Formbeans. --%>            
             <div class="searchResults">
+              <s:iterator value="entryBean">
+              ${author}              
+              </s:iterator>
                <div class="searchHit">
                    <div class="searchHit_author">
                         <%-- Wenn eMail gesetzt ist, den Namen als Link
                              anklickbar machen mit Email-Adresse als 
                              Linkziel--%> 
+   
+                               
                         <c:choose>
                             <c:when test="${createForm.email != '' 
                                         && createForm.email != null}">
@@ -60,7 +65,7 @@
                    <div class="searchHit_text">
                        ${createForm.text}
                    </div>
-               </div>    
+               </div>   
             </div>
             
             <br/>

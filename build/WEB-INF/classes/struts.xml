@@ -17,6 +17,16 @@
 			<result>/jsp/start.jsp</result>
 		</action>
 		
+		<action name="create" class="org.apache.controller.CreateAction" method="execute">
+      <result name="success">/jsp/result.jsp</result>
+      <result name="error">/jsp/error.jsp</result>
+      <result name="input">/jsp/create.jsp</result>
+    </action>
+    
+		<action name="createInput" class="org.apache.controller.CreateAction" method="input">
+		  <result name="input">/jsp/create.jsp</result>
+		</action>
+		
 		<action name="displayall" class="org.apache.controller.SearchAction" method="execute">
 		  <result name="success">/jsp/result.jsp</result>
 		  <result name="error">/jsp/error.jsp</result>

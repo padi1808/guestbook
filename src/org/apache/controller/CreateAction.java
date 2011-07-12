@@ -27,9 +27,13 @@ public class CreateAction extends ActionSupport {
     public void validate() {
         if (entryBean.getAuthor().length() == 0 ){	
 		    addFieldError( "entryBean.author", "Autor muss ausgefüllt werden." );		
+	    } else if (entryBean.getAuthor().length() < 3 ) {
+		    addFieldError( "entryBean.author", "Autor muss mindestens 3 Zeichen lang sein." );		
 	    }
-        if (entryBean.getText().length() == 0 ){	
+        if (entryBean.getText().length() == 0){	
 		    addFieldError( "entryBean.text", "Nachrichtentext muss ausgefüllt werden." );		
+	    } else if (entryBean.getText().length() < 5) {
+	        addFieldError( "entryBean.text", "Nachrichtentext muss mindestens 5 Zeichen lang sein." );	
 	    }
     }
 	

@@ -5,9 +5,7 @@
 <%-- Direktiven fuer Page-Optionen und verwendete Tag-Libs --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c"    uri="http://java.sun.com/jsp/jstl/core"  %>
-<%@ taglib prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt"   %>
-<%@ taglib prefix="html" uri="http://struts.apache.org/tags-html" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de">
@@ -66,9 +64,7 @@
             </div>
             
             <br/>
-            <html:link page="/DisplayAll.do">
-                Zur Anzeige des Gästebuchs
-            </html:link>
+            <a href="<s:url action='displayall'/>">Zur Anzeige des Gästebuchs</a> 
             
         </div> <!-- End of guestbook body -->
       

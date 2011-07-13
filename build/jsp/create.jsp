@@ -38,7 +38,7 @@
             </p>
 
             <!--  Form for searching in the guestbook  -->
-            <s:form action="create">
+            <s:form action="create" method="POST" acceptcharset="UTF-8">
             
                 <!-- "Name" field -->
                 <div class="formField">

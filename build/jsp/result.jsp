@@ -10,9 +10,6 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 
-    <%-- Struts-HTML Tags mitteillen, dass sie sich als XHTML rendern sollen --%>
-    <html:xhtml/> 
-
     <!-- HTML head -->
     <head>
         <title>Suche im Gästebuch</title>
@@ -33,7 +30,17 @@
             <h2>Suchergebnis</h2>
             
             <div class="searchResults">  
-              <s:iterator value="searchResult">              
+              
+              <s:if test="searchResultBean.size < 1">
+                  <span>
+                    Ihre Suche hat leider keinen Treffer ergeben.
+                        Versuchen Sie andere Suchbegriffe.<br/>
+                        <br/>
+                      </span>
+              </s:if>
+              
+              <s:iterator value="searchResultBean" var="result">
+                       
 			            <div class="searchHit">
 			                <div class="searchHit_author">
 			                    <s:if test="%{email != null}">

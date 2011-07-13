@@ -25,17 +25,17 @@ public class SearchAction extends ActionSupport {
     
     
     //Storing search results.
-	private static ArrayList<GuestbookEntry> searchResult;
+	private static ArrayList<GuestbookEntry> searchResultBean = null;
 	
-	public ArrayList<GuestbookEntry> getSearchResult() {
-	    return searchResult;
+	public ArrayList<GuestbookEntry> getSearchResultBean() {
+	    return searchResultBean;
 	}
     
 
 	@Override
 	public String execute() throws Exception {
-	    searchResult = new ArrayList<GuestbookEntry>();
-	   
+	   	searchResultBean = new ArrayList<GuestbookEntry>();
+	   	
 		String searchText = searchFormBean.getSearchText().toLowerCase();
 		String author = searchFormBean.getAuthor().toLowerCase();
 		
@@ -47,7 +47,7 @@ public class SearchAction extends ActionSupport {
 			for (GuestbookEntry entry : allEntries) {
 				if (entry.getText().toLowerCase().contains(searchText)
 						&& entry.getAuthor().toLowerCase().contains(author)) {
-					searchResult.add(entry);
+					searchResultBean.add(entry);
 				}
 			}
 		    return SUCCESS;	

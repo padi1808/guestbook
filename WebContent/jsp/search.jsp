@@ -4,9 +4,7 @@
 <%-- Direktiven fuer Page-Optionen und verwendete Tag-Libs --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c"    uri="http://java.sun.com/jstl/core" %>
-<%@ taglib prefix="fmt"  uri="http://java.sun.com/jstl/fmt" %>
-<%@ taglib prefix="html" uri="http://struts.apache.org/tags-html" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 
@@ -43,28 +41,26 @@
             </span>
             
             <!--  Form for searching in the guestbook  -->
-            <html:form action="/SearchSubmit.do" method="post" acceptCharset="UTF-8" >
+            <s:form action="search" method="POST" acceptcharset="UTF-8">
 
                 <!-- "Name" field -->
                 <div class="formField">
-                    <label for="text">Suchtext</label>
-                    <html:text property="text"/>
+                    <s:textfield key="searchFormBean.searchText" label="Suchtext" size="60"/>
                 </div>
 
                 <!-- "Title" field -->
                 <div class="formField">
-                    <label for="author">Autor</label>
-                    <html:text property="author"/>
+                    <s:textfield key="searchFormBean.author" label="Autor" size="60"/>
                 </div>
 
                 <!-- Submit-Button -->
                 <div class="formButton">
-                    <html:submit value="Suche"/>
+                  <s:submit key="submit" value="Suche"/>
                 </div>
 
-            </html:form>
+              </s:form>
 
-            <html:link forward="start">Zurück zur Startseite</html:link>
+              <a href="<s:url action='start'/>">Zurück zur Startseite</a>  
             
         </div> <!-- End of guestbook body -->
       

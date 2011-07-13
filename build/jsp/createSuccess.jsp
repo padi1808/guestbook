@@ -10,9 +10,6 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de">
 
-    <%-- Struts-Tags mitteillen, dass sie sich als XHTML rendern sollen --%>
-    <html:xhtml/> 
-
     <!-- HTML head -->
     <head>
         <title>Eintrag erstellt</title>
@@ -35,37 +32,28 @@
             <%-- Ausgabe des gerade erstellten Eintrags. Der Zugriff auf das
                  Bean erfolgt einfach mit dem Namen des Struts-Formbeans. --%>            
             <div class="searchResults">
-              <s:iterator value="entryBean">
-              ${author}              
-              </s:iterator>
+              <s:iterator value="entryBean">         
+      
                <div class="searchHit">
                    <div class="searchHit_author">
                         <%-- Wenn eMail gesetzt ist, den Namen als Link
                              anklickbar machen mit Email-Adresse als 
                              Linkziel--%> 
-   
                                
-                        <c:choose>
-                            <c:when test="${createForm.email != '' 
-                                        && createForm.email != null}">
-                                <a href="mailto:${createForm.email}">
-                                    ${createForm.author}
-                                </a>
-                            </c:when>
-                            <c:otherwise>
-                               ${createForm.author}
-                            </c:otherwise>
-                        </c:choose>
+                             <s:if test="%{#email != null}">
+                               <a href="mailto:${email}">${author}</a>
+                             </s:if>
+                             <s:else>${author}</s:else>
                    </div>
                    <div class="searchHit_date">
                        <%--Formatiere Datum zur besseren Anzeige --%>
-                       <fmt:formatDate value="${createForm.date}" 
-                                       pattern="dd.MM.yyyy HH:mm"/>
+                       <s:date name="date" format="dd.MM.yyyy HH:mm" />
                    </div>
                    <div class="searchHit_text">
-                       ${createForm.text}
+                       ${text}
                    </div>
-               </div>   
+               </div>
+              </s:iterator>   
             </div>
             
             <br/>

@@ -1,8 +1,6 @@
 package org.apache.model;
 
-//import org.apache.struts.validator.ValidatorForm;
-
-public class SearchForm /*extends ValidatorForm*/ {
+public class SearchForm {
 
 	private String searchText;
 	private String author;

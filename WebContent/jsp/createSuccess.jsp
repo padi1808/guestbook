@@ -10,9 +10,6 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de">
 
-    <%-- Struts-Tags mitteillen, dass sie sich als XHTML rendern sollen --%>
-    <html:xhtml/> 
-
     <!-- HTML head -->
     <head>
         <title>Eintrag erstellt</title>
@@ -42,7 +39,6 @@
                         <%-- Wenn eMail gesetzt ist, den Namen als Link
                              anklickbar machen mit Email-Adresse als 
                              Linkziel--%> 
-   
                                
                              <s:if test="%{#email != null}">
                                <a href="mailto:${email}">${author}</a>

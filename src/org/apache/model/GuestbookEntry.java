@@ -3,10 +3,7 @@ package org.apache.model;
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
 
-//import org.apache.struts.validator.ValidatorForm;
-
-public class GuestbookEntry /*extends ValidatorForm*/ implements
-		Comparable<GuestbookEntry> {
+public class GuestbookEntry implements Comparable<GuestbookEntry> {
 
 	private Date date;
 	private String author;

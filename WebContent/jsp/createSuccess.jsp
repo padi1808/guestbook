@@ -28,11 +28,9 @@
             
             <!-- Subheader and explanation text for this page -->
             <h2>Danke für ihren Eintrag</h2>
-
-            <%-- Ausgabe des gerade erstellten Eintrags. Der Zugriff auf das
-                 Bean erfolgt einfach mit dem Namen des Struts-Formbeans. --%>            
+         
             <div class="searchResults">
-              <s:iterator value="entryBean">         
+              
       
                <div class="searchHit">
                    <div class="searchHit_author">
@@ -40,20 +38,21 @@
                              anklickbar machen mit Email-Adresse als 
                              Linkziel--%> 
                                
-                             <s:if test="%{#email != null}">
-                               <a href="mailto:${email}">${author}</a>
+                             <s:if test="entryBean.email.length() == 0">
+                               ${entryBean.author}
                              </s:if>
-                             <s:else>${author}</s:else>
+                             <s:else><a href="mailto:${entryBean.email}">${entryBean.author}</a></s:else>
                    </div>
                    <div class="searchHit_date">
+                     
                        <%--Formatiere Datum zur besseren Anzeige --%>
-                       <s:date name="date" format="dd.MM.yyyy HH:mm" />
+                       <s:date name="entryBean.date" format="dd.MM.yyyy HH:mm" />
                    </div>
                    <div class="searchHit_text">
-                       ${text}
+                       ${entryBean.text}
                    </div>
                </div>
-              </s:iterator>   
+   
             </div>
             
             <br/>

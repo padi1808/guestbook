@@ -8,9 +8,6 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 
-    <%-- Struts-HTML Tags mitteillen, dass sie sich als XHTML rendern sollen --%>
-    <html:xhtml/> 
-
 
     <!-- HTML head -->
     <head>

@@ -12,7 +12,7 @@ import java.util.List;
 
 public class SearchAction extends ActionSupport {
 
-    //Storing search - input here.
+    //Storing search input here.
     private SearchForm searchFormBean = new SearchForm();
     
     public SearchForm getSearchFormBean() {

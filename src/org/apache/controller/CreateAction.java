@@ -39,9 +39,9 @@ public class CreateAction extends ActionSupport {
     public String execute() throws Exception {    	    
     	try {
     	    
-    	    //ATTENTION: guestbook entrys containing new line characters will corrupt the db file.
-    	    //This was probably intendet to easily check the exception handling, but should be fixed
-    	    //if this code wants to be used.
+            //ATTENTION: guestbook entries containing new line characters will corrupt the db file.
+            //This was probably intended behaviour to easily check the exception handling, but should be fixed
+            //for a productive use of this code.
     	    
     			GuestbookDB db = GuestbookDB.getInstance();
     			db.addEntry(getEntryBean());
